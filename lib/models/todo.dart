@@ -1,22 +1,18 @@
-class Todo {
-  final String? id; 
-  final String title;
-  final bool completed;
+class Item {
+  String id;
+  String name;
 
-  Todo({this.id, required this.title, this.completed = false});
+  Item({required this.id, required this.name});
 
-  factory Todo.fromJson(Map<String, dynamic> json) {
-    return Todo(
-      id: json['_id'], // API's generated ID field
-      title: json['title'],
-      completed: json['completed'] ?? false,
+  factory Item.fromJson(Map<String, dynamic> json) {
+    return Item(
+      id: json['_id'],
+      name: json['name'],
     );
   }
-
   Map<String, dynamic> toJson() {
     return {
-      'title': title,
-      'completed': completed,
+      'name': name,
     };
   }
 }
